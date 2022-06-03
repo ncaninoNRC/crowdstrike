@@ -1,4 +1,10 @@
+# Resources https://falconpy.io/Service-Collections/Hosts.html#getdevicedetails
+
+import os
+from pickle import TRUE
+import string
 import yaml
+import argparse
 from falconpy import Hosts
 
 # Load YAML file secrets
@@ -11,7 +17,19 @@ client_key = credentials['api']['client']
 
 hosts = Hosts(client_id=client_key, client_secret=access_secret)
 
-SEARCH_FILTER = "Stuff Here"
+# Modify help message 
+helpM = "Help! Use the --host command to search for a host in our Crowdstrike tenant. Example: cs_hostcheck.py --host nbnanino"
+
+# Init parser
+parser = argparse.ArgumentParser(description = helpM)
+
+# Add parser options
+parser.add_argument("-fh", "--host", type = str, required = TRUE, help = "Enter a hostname with the argument: --host HOSTNAME")
+
+# Parse the given args
+args = parser.parse_args()
+
+SEARCH_FILTER = args.host
 
 # Retrieve a list of hosts that have a hostname that matches our search filter
 hosts_search_result = hosts.query_devices_by_filter(filter=f"hostname:'{SEARCH_FILTER}'")
@@ -24,10 +42,14 @@ if hosts_search_result["status_code"] == 200:
         # Retrieve the details for all matches
         hosts_detail = hosts.get_device_details(ids=hosts_found)["body"]["resources"]
         for detail in hosts_detail:
-            # Display the AID and hostname for this match
+            # Display data on the query
             aid = detail["device_id"]
             hostname = detail["hostname"]
-            print(f"{hostname} ({aid})")
+            os_version = detail["os_version"]
+            external_ip = detail["external_ip"]
+            first_seen = detail["first_seen"]
+            last_seen = detail["last_seen"]
+            print(f"Hostname: {hostname}\nAID: {aid}\nOS Version: {os_version}\nExternal IP: {external_ip}\nFirst seen: {first_seen}\nLast seen: {last_seen}")
     else:
         print("No hosts found matching that hostname within your Falcon tenant.")
 else:
