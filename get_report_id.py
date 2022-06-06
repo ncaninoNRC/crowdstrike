@@ -9,14 +9,9 @@ with open('./access.yml', 'r') as file:
 access_secret = credentials['api']['secret']
 client_key = credentials['api']['client']
 
-falcon = ReportExecutions(client_id=client_key,
-                          client_secret=access_secret
-                          )
-
 # Put the things in a function this time I suppose...
 def get_report_id(client, access):
-    from falconpy import ReportExecutions
-
+    # Connect to the api
     falcon = ReportExecutions(client_id=client,
                              client_secret=access
                             )
