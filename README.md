@@ -13,5 +13,11 @@ Usage: `cs_hostcheck.py --host MACHINEHOSTNAME` or `cs_hostcheck.py -fh MACHINEH
 
 Example: `python3 cs_hostcheck.py -fh nbncanino`
  
- ### Resources
- [Official Crowdstrike Python Documentation](https://falconpy.io/)
+### get_report_id.py
+This tool will all the current reports within the Crowdstrike Tenant that are queriable via `download_report.py`
+
+### download_report.py
+This tool will download the report specified from `get_report_id.py` as a format specified.
+
+### Resources
+[Official Crowdstrike Python Documentation](https://falconpy.io/)
