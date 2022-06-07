@@ -16,6 +16,8 @@ def get_report_id(client, access):
                              client_secret=access
                             )
 
+    # Get reports limited to 100 results by created on date
+    print("[-] Getting reports....")
     response = falcon.query_reports(sort="created_on",
                                     limit=100,
                                     )

@@ -1,7 +1,6 @@
 # Resources https://falconpy.io/Service-Collections/Hosts.html#getdevicedetails
 
 import os
-from pickle import TRUE
 import string
 import yaml
 import argparse
@@ -24,7 +23,7 @@ helpM = "Help! Use the --host command to search for a host in our Crowdstrike te
 parser = argparse.ArgumentParser(description = helpM)
 
 # Add parser options
-parser.add_argument("-fh", "--host", type = str, required = TRUE, help = "Enter a hostname with the argument: --host HOSTNAME")
+parser.add_argument("-fh", "--host", type = str, required = True, help = "Enter a hostname with the argument: --host HOSTNAME")
 
 # Parse the given args
 args = parser.parse_args()
