@@ -28,6 +28,11 @@ def download(client, secret, report_ID, filename):
     print(f"[-] Saving report as {filename}...")
     open(filename, 'wb').write(response)
 
+    # Close out our session
+    print("[-] Closing our API session...")
+    falcon.deauthenticate()
+    print("[-] Complete.")
+
 
 # Call the function
 download(client_key, access_secret, report_id, "report.csv")
