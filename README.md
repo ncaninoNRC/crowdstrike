@@ -4,6 +4,10 @@ This repo is for tools made to leverage the Crowdstrike API.
 
 This tooling requires an `access.yml` file with a Crowdstrike API keypair.
 
+To install the requirements run the following:
+
+`pip3 install -r requirements.txt`
+
 ## Tools
 
 ### cs_hostcheck.py
