@@ -1,13 +1,24 @@
 # Crowdstrike Tools for NRC
 
-This repo is for tools made to leverage the Crowdstrike API.
+This repo contains scripts and functions for accessing the Crowdstrike API.
 
-This tooling requires an `access.yml` file with a Crowdstrike API keypair.
-
-To install the requirements run the following:
+## Installation
+These scripts require Python 3.9 or above. To install the requirements run the following:
 
 `pip3 install -r requirements.txt`
 
+## YAML File
+This tooling requires an `access.yml` file with a Crowdstrike API keypair. The YAML file is in the following structure:
+```
+api:
+  secret: <CROWDSTRIKE API SECRET KEY>
+  client: <CROWDSTRIKE CLIENT KEY>
+
+jira_api:
+  secret: <JIRA API KEY>
+  username: <NRC EMAIL>
+  URL: https://nrc-eng.atlassian.net
+```
 ## Tools
 
 ### cs_hostcheck.py
