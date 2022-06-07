@@ -19,5 +19,8 @@ This tool will all the current reports within the Crowdstrike Tenant that are qu
 ### download_report.py
 This tool will download the report specified from `get_report_id.py` as a format specified.
 
+### spotlight_vulnerabilites.py
+This tool will export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset.
+
 ### Resources
 [Official Crowdstrike Python Documentation](https://falconpy.io/)
