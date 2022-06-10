@@ -26,6 +26,3 @@ def get_report_id(client, access):
 
 # Call said function
 get_report_id(client_key, access_secret)
-
-
-
