@@ -35,7 +35,10 @@ This tool will all the current reports within the Crowdstrike Tenant that are qu
 This tool will download the report specified from `get_report_id.py` as a format specified.
 
 ### spotlight_vulnerabilites.py
-This tool has multiple functions within. It can export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset - `jira.py`.
+This tool has multiple functions within. It can export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset - `jira.py`.\
+
+### jira.py
+This tool will create an automatic ticket based on variables within. Meant to be used a basic bootstrap for automating data output from other tools.
 
 ### Resources
 [Official Crowdstrike Python Documentation](https://falconpy.io/)
