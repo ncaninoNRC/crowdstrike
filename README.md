@@ -8,7 +8,7 @@ These scripts require Python 3.9 or above. To install the requirements run the f
 `pip3 install -r requirements.txt`
 
 ## YAML File
-This tooling requires an `access.yml` file with a Crowdstrike API keypair. The YAML file is in the following structure:
+This tooling requires an `access.yml` file with a Crowdstrike API keypair and a JIRA API key. The YAML file is in the following structure:
 ```
 api:
   secret: <CROWDSTRIKE API SECRET KEY>
@@ -35,7 +35,7 @@ This tool will all the current reports within the Crowdstrike Tenant that are qu
 This tool will download the report specified from `get_report_id.py` as a format specified.
 
 ### spotlight_vulnerabilites.py
-This tool will export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset.
+This tool has multiple functions within. It can export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset - `jira.py`.
 
 ### Resources
 [Official Crowdstrike Python Documentation](https://falconpy.io/)
