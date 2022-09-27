@@ -1,8 +1,0 @@
-api:
-  secret: t43NRxp89yBJjhU2Zzf6Tu051GErFVsqK7lDbLWg
-  client: 5c1b024cdd8847cc8dea061da7a9c272
-
-jira_api:
-  secret: 2FhqDek0YIH7LVaAeTwAAA06
-  username: ncanino@nrchealth.com
-  URL: https://nrc-eng.atlassian.net
