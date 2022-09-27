@@ -1,0 +1,16 @@
+{
+    "resources": [
+      {
+        "first_name": "FIRSTNAME",
+        "last_name": "LASTNAME",
+        "uid": "EMAIL"
+        "role_list": ["horizon_read_only_analyst","falcon_console_guest"]
+      },
+      {
+        "first_name": "FIRSTNAME",
+        "last_name": "LASTNAME",
+        "uid": "EMAIL",
+        "role_list": ["horizon_read_only_analyst","falcon_console_guest"]
+      }
+    ]
+  }

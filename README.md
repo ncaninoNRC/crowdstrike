@@ -27,7 +27,12 @@ This tool will accept a singular argument and search our Crowdstrike tenant and 
 Usage: `cs_hostcheck.py --host MACHINEHOSTNAME` or `cs_hostcheck.py -fh MACHINEHOSTNAME`
 
 Example: `python3 cs_hostcheck.py -fh nbncanino`
- 
+
+### bulk_user.py
+This tool accepts commands for bulk user management. `users.json` is provided as a template for the users data structure.
+
+Usage: `bulk_user.py -h` will display a help output. `bulk_user.py -d DATAFILE -c COMMAND -k CLIENT_ID -s CLIENT_SECRET` will perfom the `COMMAND` on the data provided via `DATAFILE`.
+
 ### get_report_id.py
 This tool will all the current reports within the Crowdstrike Tenant that are queriable via `download_report.py`
 
@@ -35,7 +40,7 @@ This tool will all the current reports within the Crowdstrike Tenant that are qu
 This tool will download the report specified from `get_report_id.py` as a format specified.
 
 ### spotlight_vulnerabilites.py
-This tool has multiple functions within. It can export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset - `jira.py`.\
+This tool has multiple functions within. It can export a list of all items in the matching filter criteria. The output is a .json file meant to be ingested via another toolset - `jira.py`.
 
 ### jira.py
 This tool will create an automatic ticket based on variables within. Meant to be used a basic bootstrap for automating data output from other tools.

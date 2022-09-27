@@ -2,7 +2,6 @@ from falconpy import APIHarness
 import yaml
 import json
 import jmespath
-import re
 
 # Load YAML file secrets
 with open('./access.yml', 'r') as file:
@@ -53,7 +52,7 @@ def query_api(filter):
     with open('vulnerability_list.json', 'w') as outfile:
          outfile.write(pretty_json)
     """
-    return full_results
+    return(full_results)
 
 def get_remediation_actions(remediation_id):
     print("[-] Running query for remediation ID search")
@@ -74,9 +73,9 @@ def get_remediation_actions(remediation_id):
 
     # Reprint results we need
     pretty_results = json.dumps((jmespath.search(remediation_action, remediation_data)), indent=4)
-    print(pretty_results)
+    #print(pretty_results)
 
-    return pretty_results
+    return(pretty_results)
 
 def get_remediation_ids(filter):
     print("[-] Running query for remediation ID")
@@ -97,6 +96,7 @@ def get_remediation_ids(filter):
 
     total_ids = jmespath.search(remediation, vuln_data)
 
+    # Convert, clean and reconvert the list
     string_junk = ''.join(str(j) for j in total_ids)
     clean_junk = string_junk.replace(']]]',',').replace('[[[','').replace('[[]]',"'',").replace("'","")
 
@@ -108,15 +108,51 @@ def convert_to_list(string):
     new_list = list(string.split(','))
     return(new_list)
 
-z = get_remediation_ids(filter_string)
-
-for q in z:
-    get_remediation_actions(q)
 
 # Call the functions
-#query_api(filter_string)
-#junk = get_remediation_ids(filter_string)
-#get_remediation_actions('677f0bf47a483832838d1ef064a7f1ce')
+# The Testing zone, user beware....
+
+trash = query_api(filter_string)
+junk = get_remediation_ids(filter_string)
+remedy = get_remediation_actions('677f0bf47a483832838d1ef064a7f1ce')
+
+print(remedy)
+
+# z = get_remediation_ids(filter_string)
+
+# for q in z:
+#     get_remediation_actions(q)
+
+### Make string cheese and csv's
+# string_trash = ''.join(str(t) for t in trash)
+# clean_trash = string_trash.replace("'id': ","").replace("{","").replace("}","").replace("[","").replace("]","").replace("''","','").replace("', ",",").replace("'","")
+# print(clean_trash)
+
+# final_list = convert_to_list(clean_trash)
+
+# print(final_list)
+#print(type(final_list))
+
+#print(final_list[::3])
+
+
+# new_list = []
+# n = 4
+# for start_index in range(0, len(trash), n):
+#     new_list.extend(trash[start_index:start_index+n])
+#     new_list.append(junk[start_index])
+
+# print(new_list)
+
+
+
+
+#print(f'junk: {len(junk)} | trash: {len(trash)}')
+
+
+
+
+
 
 # Close session after running
 print("[-] Closing our API session...")

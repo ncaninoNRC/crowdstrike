@@ -1,6 +1,7 @@
 # Resources https://falconpy.io/Service-Collections/Hosts.html#getdevicedetails
 
 import os
+import resource
 import string
 import yaml
 import argparse
@@ -50,7 +51,7 @@ if hosts_search_result["status_code"] == 200:
             last_seen = detail["last_seen"]
             print(f"Hostname: {hostname}\nAID: {aid}\nOS Version: {os_version}\nExternal IP: {external_ip}\nFirst seen: {first_seen}\nLast seen: {last_seen}")
     else:
-        print("No hosts found matching that hostname within your Falcon tenant.")
+        print(f"{SEARCH_FILTER} has no matching hostname within your Falcon tenant.")
 else:
     # Retrieve the details of the error response
     error_detail = hosts_search_result["body"]["errors"]
