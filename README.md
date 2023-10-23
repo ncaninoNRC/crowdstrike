@@ -21,6 +21,11 @@ jira_api:
 ```
 ## Tools
 
+### cs_create_user.py
+This tool is meant to streamline the user creation process. The exe is also available in the root of this repo. *YOU MUST RUN THE EXE FROM A CONSOLE*.
+
+Usage: `cs_create_user.py --apikey APIKEYHERE`
+
 ### cs_hostcheck.py
 This tool will accept a singular argument and search our Crowdstrike tenant and return any matches for the system.
 
